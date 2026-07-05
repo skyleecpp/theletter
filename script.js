@@ -12,7 +12,7 @@
   const retryBtn = document.getElementById('retryBtn');
   const enterBtn = document.getElementById('enterBtn');
 
-  const PILLARS_TO_WIN = 19;
+  const PILLARS_TO_WIN = 1;
   const GRAVITY   = 0.45;
   const FLAP_VEL  = -7.6;
   const PIPE_W    = 54;
