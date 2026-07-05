@@ -3,29 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-<title>five pillars</title>
+<title>22</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- ============ GATE: FLAPPY BIRD ============ -->
 <section id="gate">
   <div class="notebook-bg" aria-hidden="true"></div>
 
   <header class="gate-header">
-    <h1 class="gate-title">get past the 5th pillar</h1>
-    <p class="gate-sub">tap, click, or press <span class="key">space</span> to flap</p>
+    <h1 class="gate-title">get past the 19th pillar</h1>
+    <p class="gate-sub">flap flap flap<span class="key">space</span>flap?</p>
   </header>
 
   <div class="canvas-wrap">
     <canvas id="gameCanvas" width="360" height="560"></canvas>
 
-    <div id="scoreBadge" class="doodle-badge">0 / 5</div>
+    <div id="scoreBadge" class="doodle-badge">0 / 19</div>
 
     <div id="startOverlay" class="overlay-card">
-      <p class="overlay-scrawl">a little bird has something<br>to deliver.</p>
+      <p class="overlay-scrawl">a little bird has something<br>to deliver</p>
       <button id="startBtn" class="doodle-btn">start flying →</button>
     </div>
 
@@ -35,20 +34,19 @@
     </div>
 
     <div id="winOverlay" class="overlay-card hidden">
-      <p class="overlay-scrawl win">you made it past<br>the 5th pillar.</p>
+      <p class="overlay-scrawl win">you made it past<br>the 19th pillar.</p>
       <button id="enterBtn" class="doodle-btn">open the letter →</button>
     </div>
   </div>
 
-  <p class="gate-footnote">(five pillars stand between you and the letter)</p>
+  <p class="gate-footnote">(these pillars stand between you and me)</p>
 </section>
 
-<!-- ============ MAIN CONTENT: THE BOOK ============ -->
 <section id="book" class="hidden">
   <div class="notebook-bg notebook-bg--book" aria-hidden="true"></div>
 
   <header class="book-header">
-    <h1 class="book-title">for you, page by page</h1>
+    <h1 class="book-title">for you, pillar by pillar</h1>
     <p id="pageCounter" class="page-counter">page 1</p>
   </header>
 
@@ -58,7 +56,6 @@
     <div class="page-shell">
       <div class="spiral" aria-hidden="true"></div>
       <article id="pageContent" class="page">
-        <!-- injected by script.js -->
       </article>
     </div>
 
@@ -66,7 +63,7 @@
   </div>
 
   <footer class="book-footer">
-    <button id="exportBtn" class="doodle-btn small">download all replies (.csv)</button>
+    <button id="exportBtn" class="doodle-btn small">click this and send to me!</button>
     <span id="saveToast" class="save-toast"></span>
   </footer>
 </section>
