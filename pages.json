@@ -3,22 +3,22 @@
     "id": "page-1",
     "type": "text",
     "title": "december '24",
-    "content": "my sweetest days have begun the 22nd day of this month.\n\n  Do you remember that room with its wilted floors and low hanging ceilings?\n It's been a while now.\n\n I'm sure the me back then would just wonder how he was able to get the girl of his dreams to be with him hahahaha.. life's really unpredictable in some ways yk... still, haha, tangina nung ramyun place sa sta.lucia overpriced. ",
+    "content": "my sweetest days have begun the 22nd day of this month.\n\nDo you remember that room with its wilted floors and low hanging ceilings?\n\nDo you remember our first date? it's been a while now.\n\nI'm sure the me back then would just wonder how he was able to get the girl of his dreams to be with him.. life's really unpredictable in some ways yk... still, haha, tangina nung ramyun place sa sta.lucia overpriced. ",
     "replyPrompt": "what were you actually thinking back then?"
   },
   {
     "id": "page-2",
     "type": "image",
-    "title": "page two",
-    "src": "images/example.jpg",
-    "caption": "(swap this file for a real photo — see the README)",
-    "replyPrompt": "what does this picture remind you of?"
+    "title": "photo docs",
+    "src": "images/lalabs.jpg",
+    "caption": "remember dis heheheh, first datee",
+    "replyPrompt": "cute?"
   },
   {
     "id": "page-3",
     "type": "text",
-    "title": "page three",
-    "content": "Every new page just gets appended to pages.json. No rebuilding, no redeploying the whole site — just write, save, push.",
-    "replyPrompt": "leave a note here"
+    "title": "january '25",
+    "content": "Kinda weird not having a new year's resolution where we 'keep strong', kasi it felt too early wahahahaha.  Back then I couldn't make it to Antipolo and I immediately went to be with my family sa Morong. It was memorable still as it was the starting point for this journey.",
+    "replyPrompt": "u don remember prolly"
   }
 ]
