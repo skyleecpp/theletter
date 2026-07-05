@@ -1,7 +1,4 @@
-/* =========================================================
-   PART 1 — the flappy-bird gate
-   pass 5 pillars ("pipes") to unlock the book below
-========================================================= */
+
 (function gate(){
   const canvas   = document.getElementById('gameCanvas');
   const ctx      = canvas.getContext('2d');
@@ -15,7 +12,7 @@
   const retryBtn = document.getElementById('retryBtn');
   const enterBtn = document.getElementById('enterBtn');
 
-  const PILLARS_TO_WIN = 5;
+  const PILLARS_TO_WIN = 19;
   const GRAVITY   = 0.45;
   const FLAP_VEL  = -7.6;
   const PIPE_W    = 54;
@@ -215,7 +212,6 @@
     }
   }
 
-  // input
   canvas.addEventListener('pointerdown', flap);
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space'){ e.preventDefault(); flap(); }
@@ -237,13 +233,6 @@
   }
 })();
 
-
-/* =========================================================
-   PART 2 — the book / letter
-   pages come from pages.json so new ones can be appended
-   without touching this file. replies are stored locally
-   and can be exported as a .csv.
-========================================================= */
 let __bookInitialized = false;
 
 async function initBook(){
@@ -264,7 +253,7 @@ async function initBook(){
     const res = await fetch('pages.json', { cache: 'no-store' });
     pages = await res.json();
   } catch (err){
-    pageContentEl.innerHTML = `<p class="page-text">couldn't load pages.json — check the file is next to index.html.</p>`;
+    pageContentEl.innerHTML = `<p class="page-text">wait may error sorry hehehehe</p>`;
     console.error(err);
     return;
   }
