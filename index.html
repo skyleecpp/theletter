@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>five pillars</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ GATE: FLAPPY BIRD ============ -->
+<section id="gate">
+  <div class="notebook-bg" aria-hidden="true"></div>
+
+  <header class="gate-header">
+    <h1 class="gate-title">get past the 5th pillar</h1>
+    <p class="gate-sub">tap, click, or press <span class="key">space</span> to flap</p>
+  </header>
+
+  <div class="canvas-wrap">
+    <canvas id="gameCanvas" width="360" height="560"></canvas>
+
+    <div id="scoreBadge" class="doodle-badge">0 / 5</div>
+
+    <div id="startOverlay" class="overlay-card">
+      <p class="overlay-scrawl">a little bird has something<br>to deliver.</p>
+      <button id="startBtn" class="doodle-btn">start flying →</button>
+    </div>
+
+    <div id="loseOverlay" class="overlay-card hidden">
+      <p class="overlay-scrawl">oops — try again?</p>
+      <button id="retryBtn" class="doodle-btn">retry</button>
+    </div>
+
+    <div id="winOverlay" class="overlay-card hidden">
+      <p class="overlay-scrawl win">you made it past<br>the 5th pillar.</p>
+      <button id="enterBtn" class="doodle-btn">open the letter →</button>
+    </div>
+  </div>
+
+  <p class="gate-footnote">(five pillars stand between you and the letter)</p>
+</section>
+
+<!-- ============ MAIN CONTENT: THE BOOK ============ -->
+<section id="book" class="hidden">
+  <div class="notebook-bg notebook-bg--book" aria-hidden="true"></div>
+
+  <header class="book-header">
+    <h1 class="book-title">for you, page by page</h1>
+    <p id="pageCounter" class="page-counter">page 1</p>
+  </header>
+
+  <div class="book-stage">
+    <button id="prevBtn" class="turn-btn turn-btn--prev" aria-label="previous page">‹</button>
+
+    <div class="page-shell">
+      <div class="spiral" aria-hidden="true"></div>
+      <article id="pageContent" class="page">
+        <!-- injected by script.js -->
+      </article>
+    </div>
+
+    <button id="nextBtn" class="turn-btn turn-btn--next" aria-label="next page">›</button>
+  </div>
+
+  <footer class="book-footer">
+    <button id="exportBtn" class="doodle-btn small">download all replies (.csv)</button>
+    <span id="saveToast" class="save-toast"></span>
+  </footer>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

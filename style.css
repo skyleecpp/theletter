@@ -1,0 +1,331 @@
+/* ---------------------------------------------------------
+   tokens
+--------------------------------------------------------- */
+:root{
+  --paper:      #faf3e3;
+  --paper-line: #e3d9bd;
+  --ink:        #2e2b26;
+  --pencil:     #948a78;
+  --sage:       #5c7a5e;
+  --red:        #b5533c;
+  --shadow:     rgba(46,43,38,0.18);
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin:0;
+  padding:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Patrick Hand', cursive;
+  overflow-x:hidden;
+}
+
+.hidden{ display:none !important; }
+
+/* subtle ruled-notebook backdrop, reused on both screens */
+.notebook-bg{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 34px,
+      var(--paper-line) 34px, var(--paper-line) 35px
+    );
+  background-color: var(--paper);
+}
+.notebook-bg::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0; left: 46px;
+  width: 2px;
+  background: rgba(181,83,60,0.25);
+}
+.notebook-bg--book::after{ left: 30px; }
+
+/* ---------------------------------------------------------
+   shared bits: buttons, badges, headings
+--------------------------------------------------------- */
+h1{ font-family:'Caveat', cursive; font-weight:700; }
+
+.doodle-btn{
+  font-family:'Caveat', cursive;
+  font-size: 1.4rem;
+  font-weight: 600;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2.5px solid var(--ink);
+  border-radius: 14px 10px 16px 9px / 10px 14px 9px 16px;
+  padding: 0.5em 1.3em;
+  cursor: pointer;
+  transform: rotate(-1deg);
+  box-shadow: 3px 3px 0 var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.doodle-btn:hover{ transform: rotate(0.5deg) translateY(-2px); box-shadow: 4px 5px 0 var(--shadow); }
+.doodle-btn:active{ transform: translateY(1px); box-shadow: 1px 1px 0 var(--shadow); }
+.doodle-btn.small{ font-size:1.05rem; padding:0.4em 0.9em; }
+
+.doodle-badge{
+  position:absolute;
+  top: 14px; right: 14px;
+  font-family:'Caveat', cursive;
+  font-size: 1.6rem;
+  font-weight:700;
+  background: var(--paper);
+  border: 2px dashed var(--ink);
+  border-radius: 50% 45% 50% 45%;
+  padding: 0.2em 0.6em;
+  transform: rotate(4deg);
+}
+
+.key{
+  border:1.5px solid var(--pencil);
+  border-radius:4px;
+  padding: 0 6px;
+  font-family: 'Patrick Hand', cursive;
+  background: #fff8ea;
+}
+
+/* ---------------------------------------------------------
+   GATE / GAME SCREEN
+--------------------------------------------------------- */
+#gate{
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  padding: 24px 16px 40px;
+  text-align:center;
+}
+
+.gate-header{ margin-bottom: 8px; }
+.gate-title{
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin: 0 0 4px;
+  text-decoration: underline wavy var(--red) 2px;
+  text-underline-offset: 6px;
+}
+.gate-sub{ color: var(--pencil); margin:0; font-size:1.1rem; }
+.gate-footnote{ color: var(--pencil); margin-top: 14px; font-size: 0.95rem; }
+
+.canvas-wrap{
+  position: relative;
+  margin-top: 18px;
+  border: 3px solid var(--ink);
+  border-radius: 22px 18px 24px 16px / 16px 22px 14px 26px;
+  box-shadow: 6px 6px 0 var(--shadow);
+  background: #fffdf6;
+  touch-action: none;
+}
+
+#gameCanvas{
+  display:block;
+  border-radius: 20px 16px 22px 14px / 14px 20px 12px 24px;
+  cursor: pointer;
+  max-width: 90vw;
+  height: auto;
+}
+
+.overlay-card{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 18px;
+  background: rgba(250,243,227,0.92);
+  border-radius: 20px 16px 22px 14px / 14px 20px 12px 24px;
+  text-align:center;
+  padding: 20px;
+}
+.overlay-scrawl{
+  font-family:'Caveat', cursive;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin:0;
+}
+.overlay-scrawl.win{ color: var(--sage); }
+
+/* ---------------------------------------------------------
+   BOOK SCREEN
+--------------------------------------------------------- */
+#book{
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding: 30px 14px 50px;
+  animation: fadeIn .9s ease;
+}
+@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
+
+.book-header{ text-align:center; margin-bottom: 10px; }
+.book-title{
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  margin: 0 0 2px;
+}
+.page-counter{ color: var(--pencil); margin:0; font-size:1rem; }
+
+.book-stage{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  width: 100%;
+  max-width: 640px;
+  margin-top: 18px;
+}
+
+.turn-btn{
+  font-family:'Caveat', cursive;
+  font-size: 2.6rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 6px 10px;
+  transition: transform .15s ease;
+}
+.turn-btn:hover{ transform: scale(1.25); color: var(--red); }
+.turn-btn:disabled{ opacity: 0.25; cursor:default; transform:none; color: var(--ink); }
+
+.page-shell{
+  position:relative;
+  flex:1;
+  min-height: 60vh;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 33px,
+      var(--paper-line) 33px, var(--paper-line) 34px
+    ),
+    #fffdf6;
+  border: 2.5px solid var(--ink);
+  border-radius: 4px 18px 6px 20px / 14px 4px 20px 6px;
+  box-shadow: 5px 5px 0 var(--shadow);
+  padding: 30px 26px 26px 46px;
+  overflow: hidden;
+}
+
+.spiral{
+  position:absolute;
+  left: 10px; top: 0; bottom: 0;
+  width: 14px;
+  background-image: radial-gradient(circle, var(--pencil) 3px, transparent 3.5px);
+  background-size: 14px 26px;
+  background-repeat: repeat-y;
+  opacity: 0.55;
+}
+
+.page{
+  animation: pageIn .35s ease;
+  min-height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+@keyframes pageIn{
+  from{ opacity:0; transform: rotateY(8deg) translateX(14px); }
+  to{ opacity:1; transform: none; }
+}
+
+.page-title{
+  font-family:'Caveat', cursive;
+  font-size: 2rem;
+  margin: 0 0 10px;
+  color: var(--sage);
+}
+
+.page-text{
+  font-size: 1.35rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  margin: 0 0 16px;
+}
+
+.page-image-wrap{
+  text-align:center;
+  margin-bottom: 12px;
+}
+.page-image-wrap img{
+  max-width: 100%;
+  max-height: 320px;
+  border: 2.5px solid var(--ink);
+  border-radius: 6px 16px 8px 14px / 12px 6px 16px 8px;
+  transform: rotate(-1.2deg);
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+.page-caption{
+  font-family:'Caveat', cursive;
+  color: var(--pencil);
+  font-size: 1.2rem;
+  margin-top: 6px;
+}
+
+.reply-block{
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 2px dashed var(--pencil);
+}
+.reply-label{
+  display:block;
+  font-family:'Caveat', cursive;
+  font-size: 1.2rem;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.reply-box{
+  width: 100%;
+  min-height: 64px;
+  resize: vertical;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1rem;
+  border: 2px solid var(--pencil);
+  border-radius: 8px 12px 10px 14px / 10px 8px 14px 10px;
+  background: #fffef9;
+  padding: 8px 10px;
+}
+.reply-box:focus{ outline: 2px solid var(--sage); outline-offset: 1px; }
+
+.reply-actions{
+  margin-top: 8px;
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.reply-saved-note{
+  font-family:'Caveat', cursive;
+  color: var(--sage);
+  font-size: 1.1rem;
+}
+
+.book-footer{
+  margin-top: 26px;
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+.save-toast{
+  font-family:'Caveat', cursive;
+  font-size: 1.2rem;
+  color: var(--sage);
+  min-height: 1.4em;
+}
+
+/* mobile */
+@media (max-width: 480px){
+  .page-shell{ padding: 24px 16px 20px 36px; }
+  .turn-btn{ font-size: 2rem; }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}

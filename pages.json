@@ -1,0 +1,24 @@
+[
+  {
+    "id": "page-1",
+    "type": "text",
+    "title": "page one",
+    "content": "You made it past the birds and the pillars — that part was just to make you earn it.\n\nThis is the real letter. It will grow every time I add a page, so come back and flip through it whenever you like.",
+    "replyPrompt": "what are you thinking right now?"
+  },
+  {
+    "id": "page-2",
+    "type": "image",
+    "title": "page two",
+    "src": "images/example.jpg",
+    "caption": "(swap this file for a real photo — see the README)",
+    "replyPrompt": "what does this picture remind you of?"
+  },
+  {
+    "id": "page-3",
+    "type": "text",
+    "title": "page three",
+    "content": "Every new page just gets appended to pages.json. No rebuilding, no redeploying the whole site — just write, save, push.",
+    "replyPrompt": "leave a note here"
+  }
+]
